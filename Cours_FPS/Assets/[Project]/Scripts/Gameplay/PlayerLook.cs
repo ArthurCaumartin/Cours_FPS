@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,6 @@ public class PlayerLook : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print("FixedUpdate Look");
         float mouseX = _lookInput.x * _lookSensitivity * Time.fixedDeltaTime;
         transform.Rotate(0, mouseX, 0);
 
@@ -21,10 +21,23 @@ public class PlayerLook : MonoBehaviour
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
         _playerCamera.transform.localEulerAngles = new Vector3(_xRotation, 0, 0);
-    } 
+    }
 
     private void OnLook(InputValue value)
     {
         _lookInput = value.Get<Vector2>();
+    }
+
+    public async void AddRecoil(float recoilAmount, float recoilSpeed)
+    {
+        float totalRecoil = recoilAmount;
+        while (totalRecoil > 0)
+        {
+            _xRotation += Time.deltaTime * recoilSpeed;
+            totalRecoil -= Time.deltaTime * recoilSpeed;
+            await Task.Yield();
+            _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
+        }
+
     }
 }

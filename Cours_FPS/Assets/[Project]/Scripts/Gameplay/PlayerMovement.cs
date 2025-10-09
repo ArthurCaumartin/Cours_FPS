@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 velocity = _inputDirection * _moveSpeed;
-        
         velocity = velocity.z * transform.forward + velocity.x * transform.right;
         _rigidbody.linearVelocity = new Vector3(velocity.x, _rigidbody.linearVelocity.y, velocity.z);
     }
