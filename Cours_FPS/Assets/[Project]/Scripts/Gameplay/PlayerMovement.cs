@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 velocity = _inputDirection * _moveSpeed;
         velocity = velocity.z * transform.forward + velocity.x * transform.right;
-        _rigidbody.linearVelocity = new Vector3(velocity.x, _rigidbody.linearVelocity.y, velocity.z);
+        _rigidbody.velocity = new Vector3(velocity.x, _rigidbody.velocity.y, velocity.z);
     }
 
     private void OnMove(InputValue value)
