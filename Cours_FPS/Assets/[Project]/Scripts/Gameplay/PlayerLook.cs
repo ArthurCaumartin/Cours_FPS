@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerLook : MonoBehaviour
 {
-    [SerializeField] private Camera _playerCamera;
+    [SerializeField] private Transform _orientationContainer;
     [SerializeField] private float _lookSensitivity = 2f;
     [SerializeField] private float _maxLookAngle = 90f;
     private Vector2 _lookInput;
@@ -20,7 +20,7 @@ public class PlayerLook : MonoBehaviour
         float mouseY = _lookInput.y * _lookSensitivity * Time.fixedDeltaTime;
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
-        _playerCamera.transform.localEulerAngles = new Vector3(_xRotation, 0, 0);
+        _orientationContainer.localEulerAngles = new Vector3(_xRotation, 0, 0);
     }
 
     private void OnLook(InputValue value)
@@ -30,14 +30,14 @@ public class PlayerLook : MonoBehaviour
 
     public async void AddRecoil(float recoilAmount, float recoilSpeed)
     {
+        print("Add recoil : " + recoilAmount);
         float totalRecoil = recoilAmount;
         while (totalRecoil > 0)
         {
-            _xRotation += Time.deltaTime * recoilSpeed;
+            _xRotation -= Time.deltaTime * recoilSpeed;
             totalRecoil -= Time.deltaTime * recoilSpeed;
             await Task.Yield();
             _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
         }
-
     }
 }

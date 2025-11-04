@@ -5,8 +5,9 @@ public class Weapon_Shotgun : Weapon
     [SerializeField] private int _projectileCount = 6;
     [SerializeField, Range(0f, 60)] private float _spreadAngle = 0.1f;
 
-    public override void Shoot()
+    public override void Shoot(bool isInputPressed)
     {
+        if (!isInputPressed) return;
         if (!canShoot) return;
 
         for (int i = 0; i < _projectileCount; i++)
@@ -21,6 +22,7 @@ public class Weapon_Shotgun : Weapon
             newProjectile.Initilaze(damage, projectileSpeed, layerMask);
         }
 
+        playerLook.AddRecoil(recoilAmout, recoilSpeed);
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
     }

@@ -86,6 +86,8 @@ MonoBehaviour:
   damage: 5
   shootPerSecond: 10
   projectileSpeed: 10
+  recoilAmout: 10
+  recoilSpeed: 150
   _projectileCount: 30
   _spreadAngle: 8
 --- !u!1 &6728279696985864146

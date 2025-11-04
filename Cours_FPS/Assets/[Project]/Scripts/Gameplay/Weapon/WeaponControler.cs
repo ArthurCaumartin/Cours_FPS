@@ -5,14 +5,22 @@ using UnityEngine.InputSystem;
 
 public class WeaponControler : MonoBehaviour
 {
+    [SerializeField] private PlayerLook _playerLook;
+
+    [Space]
     [SerializeField] private List<Weapon> _weaponList = new List<Weapon>();
     private int _currentWeaponIndex = 0;
     private Weapon _currentWeapon;
     private bool _isShooting = false;
+    private bool _isShootingSecondary = false;
 
     private void Start()
     {
-        _weaponList.ForEach(weapon => weapon.gameObject.SetActive(false));
+        foreach (var item in _weaponList)
+        {
+            item.SetPlayerRef(_playerLook);
+            item.gameObject.SetActive(false);
+        }
         SwitchWeapon(_currentWeaponIndex);
     }
 
@@ -27,14 +35,19 @@ public class WeaponControler : MonoBehaviour
 
     private void Update()
     {
-        if (_isShooting)
-            _currentWeapon?.Shoot();
+        _currentWeapon?.Shoot(_isShooting);
+        _currentWeapon?.ShootSecondary(_isShootingSecondary);
     }
 
     private void OnShoot(InputValue value)
     {
-        print(value.Get<float>());
+        // print(value.Get<float>());
         _isShooting = value.Get<float>() > .5f;
+    }
+
+    private void OnShootSecondary(InputValue value)
+    {
+        _isShootingSecondary = value.Get<float>() > .5f;
     }
 
     private void OnScroll(InputValue value)

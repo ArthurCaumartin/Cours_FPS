@@ -15,9 +15,9 @@ public class Weapon_Gatling : Weapon
             _currentAttackSpeedBonus = 1f;
     }
 
-
-    public override void Shoot()
+    public override void Shoot(bool isInputPressed)
     {
+        if (!isInputPressed) return;
         if (!canShoot) return;
         Projectile newProjectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         newProjectile.Initilaze(damage, projectileSpeed, layerMask);
@@ -25,8 +25,8 @@ public class Weapon_Gatling : Weapon
         _timeSinceLastShoot = 0f;
         _currentAttackSpeedBonus = Mathf.Clamp(_currentAttackSpeedBonus + 0.1f, 1f, _maxAttackSpeedBonus);
 
-
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / (shootPerSecond * _currentAttackSpeedBonus)));
+        playerLook.AddRecoil(recoilAmout, recoilSpeed);
     }
 }
