@@ -14,7 +14,7 @@ public class AimCursor : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, _aimLayerMask))
             _worldAimPoint = hit.point;
         else
-            _worldAimPoint = ray.GetPoint(10f);
+            _worldAimPoint = ray.GetPoint(100f);
     }
 
     public Vector3 GetWorldAimPoint()

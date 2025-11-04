@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6204856496826268703}
+  - {fileID: 3627002430396075081}
   m_Father: {fileID: 3990490480832747955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3210410434380434450
@@ -44,7 +45,7 @@ GameObject:
   m_Layer: 0
   m_Name: AimPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -57,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 3210410434380434450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.221, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0.175, z: 0.163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,11 +93,11 @@ Transform:
   m_GameObject: {fileID: 4710570200491695909}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.229, z: -0.017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.078, z: -0.017}
+  m_LocalScale: {x: 0.0147, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3990490480832747955}
+  m_Father: {fileID: 8598841611466919258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6642242494639956172
 MonoBehaviour:
@@ -794,7 +795,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1735
+  m_VersionIndex: 1747
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -893,7 +894,7 @@ GameObject:
   m_Layer: 0
   m_Name: Weapon_Sniper
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -913,7 +914,6 @@ Transform:
   - {fileID: 8598841611466919258}
   - {fileID: 3990756906221475981}
   - {fileID: 5414909154798384706}
-  - {fileID: 3627002430396075081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7748011270871289418
@@ -935,16 +935,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   damage: 5
-  shootPerSecond: 0.5
-  shootDelay: 2
+  shootPerSecond: 10
+  shootDelay: 0.1
   projectileSpeed: 5
   recoilAmout: 0
   recoilSpeed: 0
-  _aimCursor: {fileID: 0}
-  _playerCamera: {fileID: 0}
-  _aimTransform: {fileID: 5414909154798384706}
-  _aimDistance: 0.5
-  _zoomFOV: 30
+  aimCursor: {fileID: 0}
+  playerCamera: {fileID: 0}
+  aimTransform: {fileID: 5414909154798384706}
+  aimDistance: 0.5
+  zoomFOV: 30
 --- !u!1 &6728279696985864146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1053,7 @@ Transform:
   m_GameObject: {fileID: 6926866979759638052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

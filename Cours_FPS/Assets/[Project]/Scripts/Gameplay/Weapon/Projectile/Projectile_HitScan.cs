@@ -6,7 +6,7 @@ public class Projectile_HitScan : Projectile
     {
         TryGetDamagable(out Damagable damagable, out Vector3 hitPoint);
         damagable?.TakeDamage(damage);
-        Debug.DrawLine(transform.position, damagable ? hitPoint : transform.forward * 100
+        Debug.DrawRay(transform.position, damagable ? (hitPoint - transform.position).normalized * 100 : transform.forward * 100
                         , damagable ? Color.green : Color.red
                         , 2f);
     }

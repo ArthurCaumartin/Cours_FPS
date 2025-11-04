@@ -73,7 +73,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3127
+    m_Bits: 7223
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 2419164274695357734}
   - component: {fileID: 1429760183957293746}
   - component: {fileID: 5992863234634756970}
-  m_Layer: 20
+  m_Layer: 13
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 1219381767660355022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.693, z: 0.415}
+  m_LocalPosition: {x: 0, y: 1.693, z: 0.389}
   m_LocalScale: {x: 0.42795, y: 0.061114, z: 0.25271}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 3541884266779894466}
   - component: {fileID: 5073207244115622480}
   - component: {fileID: 196186975250742884}
-  m_Layer: 20
+  m_Layer: 13
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 4297201658471611617}
   - component: {fileID: 7934073680509052405}
   - component: {fileID: 1742094851639035791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ MonoBehaviour:
   _playerCamera: {fileID: 296187042991067184}
   _aimLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 5120
 --- !u!54 &7934073680509052405
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2984957347239907193}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ PrefabInstance:
     - target: {fileID: 6642242494639956172, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1738
+      value: 1747
       objectReference: {fileID: 0}
     - target: {fileID: 7568873550101675911, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
