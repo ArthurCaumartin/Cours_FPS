@@ -23,7 +23,7 @@ public class WeaponAimable : Weapon
         Vector3 targetLocalPos;
         if (isAiming)
         {
-            Vector3 worldAimPos = playerCamera.transform.position + playerCamera.transform.forward;
+            Vector3 worldAimPos = playerCamera.transform.position;
             targetLocalPos = transform.parent.InverseTransformPoint(worldAimPos);
             targetLocalPos -= aimTransform.localPosition;
         }
