@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,16 +17,43 @@ public class WeaponControler : MonoBehaviour
 
     private void Start()
     {
-        foreach (var item in _weaponList)
-        {
-            item.SetPlayerRef(_playerLook);
-            item.gameObject.SetActive(false);
-        }
+        _currentWeaponIndex = 0;
+        foreach (var item in GetComponentsInChildren<Weapon>())
+            AddWeapon(item);
+    }
+
+    public void AddWeapon(Weapon newWeapon)
+    {
+        newWeapon.InitGrab(this, _playerLook);
+
+        newWeapon.gameObject.SetActive(false);
+        _weaponList.Add(newWeapon);
+
+        _currentWeaponIndex = _weaponList.IndexOf(newWeapon);
+        SwitchWeapon(_currentWeaponIndex);
+    }
+
+    public void RemoveWeapon(int index)
+    {
+        if (index < 0 || index >= _weaponList.Count) return;
+
+        Weapon weaponToRemove = _weaponList[index];
+        _weaponList.RemoveAt(index);
+
+        weaponToRemove.transform.parent = null;
+        weaponToRemove.SetPhysicsState(false);
+        weaponToRemove.Push(transform.forward * 5f + transform.up * 2f);
+
+        if (_currentWeaponIndex >= _weaponList.Count)
+            _currentWeaponIndex = 0;
+
         SwitchWeapon(_currentWeaponIndex);
     }
 
     private void SwitchWeapon(int index)
     {
+        if(index < 0 || index >= _weaponList.Count) return;
+        print("Switch weapon to index : " + index);
         if (_currentWeapon)
             _currentWeapon.gameObject.SetActive(false);
 
@@ -41,7 +69,6 @@ public class WeaponControler : MonoBehaviour
 
     private void OnShoot(InputValue value)
     {
-        // print(value.Get<float>());
         _isShooting = value.Get<float>() > .5f;
     }
 
@@ -53,9 +80,18 @@ public class WeaponControler : MonoBehaviour
     private void OnScroll(InputValue value)
     {
         float scrollValue = value.Get<float>();
-        _currentWeaponIndex = (_currentWeaponIndex += (int)scrollValue) % _weaponList.Count;
+        if (scrollValue == 0) return;
+        _currentWeaponIndex = (_currentWeaponIndex + (int)Mathf.Sign(scrollValue)) % _weaponList.Count;
         if (_currentWeaponIndex < 0) _currentWeaponIndex = _weaponList.Count - 1;
         SwitchWeapon(_currentWeaponIndex);
+    }
+
+    private void OnThrowWeapon(InputValue value)
+    {
+        if (value.Get<float>() < .5f) return;
+        if (_weaponList.Count == 0) return;
+
+        RemoveWeapon(_currentWeaponIndex);
     }
 }
 

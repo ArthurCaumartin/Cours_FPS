@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputAction",
     "maps": [
         {
@@ -45,6 +46,15 @@
                     "name": "ShootSecondary",
                     "type": "Value",
                     "id": "c4feddbb-06cb-4398-99ce-74afa868572e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ThrowWeapon",
+                    "type": "Value",
+                    "id": "dbbb4439-a5b5-4fd9-8c2c-4f19cfd6cb7c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -148,6 +158,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ShootSecondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4013a1a-f3f6-402f-9c34-0118f4e4e513",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

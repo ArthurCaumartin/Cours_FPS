@@ -31,7 +31,7 @@ public class PlayerLook : MonoBehaviour
 
     public async void AddRecoil(float recoilAmount, float recoilSpeed)
     {
-        print("Add recoil : " + recoilAmount);
+        // print("Add recoil : " + recoilAmount);
         float totalRecoil = recoilAmount;
         while (totalRecoil > 0)
         {
@@ -40,5 +40,10 @@ public class PlayerLook : MonoBehaviour
             await Task.Yield();
             _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
         }
+    }
+
+    public Vector3 GetLookDirection()
+    {
+        return _orientationContainer.forward;
     }
 }

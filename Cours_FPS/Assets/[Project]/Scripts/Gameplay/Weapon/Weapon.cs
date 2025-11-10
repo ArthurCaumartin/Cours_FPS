@@ -18,15 +18,34 @@ public abstract class Weapon : MonoBehaviour
 
     protected bool canShoot = true;
     protected PlayerLook playerLook;
+    protected WeaponControler weaponControler;
+    protected Rigidbody weaponRigidbody;
+    protected Collider[] weaponColliderArray;
+
+    protected virtual void Awake()
+    {
+        enabled = false;
+        weaponRigidbody = GetComponent<Rigidbody>();
+        weaponColliderArray = GetComponentsInChildren<Collider>();
+    }
 
     private void OnValidate()
     {
         shootDelay = 1 / shootPerSecond;
     }
 
-    public void SetPlayerRef(PlayerLook playerLook)
+    public void InitGrab(WeaponControler weaponControler, PlayerLook playerLook)
     {
+        if (weaponColliderArray == null)
+            weaponColliderArray = GetComponentsInChildren<Collider>();
+
+        if (weaponRigidbody)
+            Destroy(weaponRigidbody);
+
         this.playerLook = playerLook;
+        this.weaponControler = weaponControler;
+
+        SetPhysicsState(true);
     }
 
     public virtual void Shoot(bool isInputPressed)
@@ -47,5 +66,23 @@ public abstract class Weapon : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(delay);
         canShoot = true;
+    }
+
+    public void SetPhysicsState(bool isGrabed)
+    {
+        enabled = isGrabed;
+
+        if(!isGrabed && weaponRigidbody == null)
+        {
+            weaponRigidbody = gameObject.AddComponent<Rigidbody>();
+        }
+
+        foreach (var item in weaponColliderArray)
+            item.enabled = !isGrabed;
+    }
+
+    public void Push(Vector3 worldForce)
+    {
+        weaponRigidbody.AddForce(worldForce, ForceMode.Impulse);
     }
 }
