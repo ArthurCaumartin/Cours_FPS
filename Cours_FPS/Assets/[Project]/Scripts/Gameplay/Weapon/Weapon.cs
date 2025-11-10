@@ -14,7 +14,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float projectileSpeed;
     [Space]
     [SerializeField] protected float recoilAmout;
-    [SerializeField] protected float recoilSpeed;
+    [SerializeField] protected float recoilDuration;
 
     protected bool canShoot = true;
     protected PlayerLook playerLook;

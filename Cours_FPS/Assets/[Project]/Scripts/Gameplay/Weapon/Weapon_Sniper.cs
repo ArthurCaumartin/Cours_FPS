@@ -25,7 +25,7 @@ public class Weapon_Sniper : WeaponAimable
         Projectile newProj = Instantiate(projectilePrefab, shootPoint.position, projectileRot);
         newProj.Initilaze(damage, projectileSpeed, layerMask);
 
-        playerLook.AddRecoil(recoilAmout, recoilSpeed);
+        playerLook.AddRecoil(recoilAmout, recoilDuration);
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
     }
 

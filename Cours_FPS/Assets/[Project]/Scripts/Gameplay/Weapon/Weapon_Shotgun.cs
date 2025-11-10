@@ -22,7 +22,7 @@ public class Weapon_Shotgun : Weapon
             newProjectile.Initilaze(damage, projectileSpeed, layerMask);
         }
 
-        playerLook.AddRecoil(recoilAmout, recoilSpeed);
+        playerLook.AddRecoil(recoilAmout, recoilDuration);
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
     }

@@ -79,15 +79,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 3990756906221475981}
-  projectilePrefab: {fileID: 1522697219314534980, guid: a44b084224307904fa91ff6aaa87f53a, type: 3}
+  projectilePrefab: {fileID: 1522697219314534980, guid: a44b084224307904fa91ff6aaa87f53a,
+    type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
   damage: 5
   shootPerSecond: 10
+  shootDelay: 0.1
   projectileSpeed: 10
   recoilAmout: 10
-  recoilSpeed: 150
+  recoilDuration: 0.075
   _projectileCount: 30
   _spreadAngle: 8
 --- !u!1 &6728279696985864146
@@ -148,9 +150,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

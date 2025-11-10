@@ -249,8 +249,8 @@ MonoBehaviour:
   shootPerSecond: 10
   shootDelay: 0.1
   projectileSpeed: 5
-  recoilAmout: 0
-  recoilSpeed: 0
+  recoilAmout: 3
+  recoilDuration: 0.075
   aimCursor: {fileID: 0}
   playerCamera: {fileID: 0}
   aimTransform: {fileID: 5414909154798384706}

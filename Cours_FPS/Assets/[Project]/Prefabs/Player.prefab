@@ -73,7 +73,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 7223
+    m_Bits: 23607
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -872,9 +872,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
+        type: 3}
       propertyPath: aimCursor
       value: 
       objectReference: {fileID: 4297201658471611617}
+    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
+        type: 3}
+      propertyPath: recoilAmout
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
+        type: 3}
+      propertyPath: recoilSpeed
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
       propertyPath: playerCamera
