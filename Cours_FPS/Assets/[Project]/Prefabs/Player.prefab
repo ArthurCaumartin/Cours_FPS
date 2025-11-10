@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdc1bbb57083c645a76dc09afc5608f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debug: 1
+  _debug: 0
   _playerCamera: {fileID: 296187042991067184}
   _aimLayerMask:
     serializedVersion: 2

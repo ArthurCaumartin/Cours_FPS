@@ -11,7 +11,7 @@ public class AimCursor : MonoBehaviour
     private void Update()
     {
         Ray ray = new Ray(_playerCamera.transform.position, _playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, _aimLayerMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, 500f, _aimLayerMask))
             _worldAimPoint = hit.point;
         else
             _worldAimPoint = ray.GetPoint(100f);
@@ -28,7 +28,7 @@ public class AimCursor : MonoBehaviour
         if (_playerCamera)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawRay(_playerCamera.transform.position, _playerCamera.transform.forward * 10);
+            Gizmos.DrawRay(_playerCamera.transform.position, _playerCamera.transform.forward * 500f);
             Gizmos.DrawSphere(_worldAimPoint, 0.2f);
         }
     }

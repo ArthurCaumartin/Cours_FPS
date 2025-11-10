@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Weapon_Sniper : WeaponAimable
@@ -28,6 +27,4 @@ public class Weapon_Sniper : WeaponAimable
         playerLook.AddRecoil(recoilAmout, recoilDuration);
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
     }
-
-
 }

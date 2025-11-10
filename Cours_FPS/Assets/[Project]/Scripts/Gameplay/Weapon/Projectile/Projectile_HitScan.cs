@@ -17,7 +17,7 @@ public class Projectile_HitScan : Projectile
         hitPoint = Vector3.zero;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 100f, layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 500f, layerMask))
         {
             damagable = hit.collider.GetComponent<Damagable>();
             hitPoint = hit.point;
