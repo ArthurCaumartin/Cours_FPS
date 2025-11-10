@@ -34,8 +34,8 @@ public class PlayerLook : MonoBehaviour
         float totalRecoil = recoilAmount;
         while (totalRecoil > 0)
         {
-            _xRotation -= Time.deltaTime * recoilSpeed;
-            totalRecoil -= Time.deltaTime * recoilSpeed;
+            _xRotation -= Time.deltaTime * recoilAmount / recoilSpeed;
+            totalRecoil -= Time.deltaTime * recoilAmount / recoilSpeed;
             await Task.Yield();
             _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
         }
