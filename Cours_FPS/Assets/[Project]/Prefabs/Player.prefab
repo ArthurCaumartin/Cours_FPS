@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef913add8fb1bdc4c901093e850b8d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 19.99
+  _moveSpeed: 8
   _jumpForce: 5
 --- !u!114 &3358659690203349821
 MonoBehaviour:
@@ -582,7 +582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orientationContainer: {fileID: 4496367599912408000}
-  _lookSensitivity: 5
+  _lookSensitivity: 8
+  _lookSensitivityAim: 4
   _maxLookAngle: 80
 --- !u!114 &4297201658471611617
 MonoBehaviour:
@@ -872,24 +873,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
-      propertyPath: damage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
-        type: 3}
       propertyPath: aimCursor
       value: 
       objectReference: {fileID: 4297201658471611617}
-    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
-        type: 3}
-      propertyPath: recoilAmout
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
-        type: 3}
-      propertyPath: recoilSpeed
-      value: 0.075
-      objectReference: {fileID: 0}
     - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
       propertyPath: playerCamera

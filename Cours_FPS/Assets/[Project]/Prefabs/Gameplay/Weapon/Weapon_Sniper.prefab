@@ -245,11 +245,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 5120
-  damage: 5
+  damage: 100
   shootPerSecond: 10
   shootDelay: 0.1
   projectileSpeed: 5
-  recoilAmout: 3
+  recoilAmout: 4
   recoilDuration: 0.075
   aimCursor: {fileID: 0}
   playerCamera: {fileID: 0}
