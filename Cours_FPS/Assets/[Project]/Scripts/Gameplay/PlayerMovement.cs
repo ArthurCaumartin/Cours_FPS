@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _acceleration = 10f;
     [SerializeField] private float _jumpForce = 5f;
     private Rigidbody _rigidbody;
     private Vector3 _inputDirection;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 velocity = _inputDirection * _moveSpeed;
         velocity = velocity.z * transform.forward + velocity.x * transform.right;
+        velocity = Vector3.Lerp(_rigidbody.velocity, velocity, Time.fixedDeltaTime * _acceleration);
         _rigidbody.velocity = new Vector3(velocity.x, _rigidbody.velocity.y, velocity.z);
     }
 

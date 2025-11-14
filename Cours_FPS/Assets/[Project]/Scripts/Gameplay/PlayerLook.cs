@@ -31,6 +31,7 @@ public class PlayerLook : MonoBehaviour
 
     public async void AddRecoil(float recoilAmount, float recoilSpeed)
     {
+        //TODO ajouter une animation curve en parametre + faire le recoil avec un lerp et conditioner avec un time
         // print("Add recoil : " + recoilAmount);
         float totalRecoil = recoilAmount;
         while (totalRecoil > 0)

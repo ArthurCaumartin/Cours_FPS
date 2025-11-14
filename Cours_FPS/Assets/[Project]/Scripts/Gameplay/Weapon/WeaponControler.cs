@@ -39,6 +39,7 @@ public class WeaponControler : MonoBehaviour
         _weaponList.RemoveAt(index);
 
         weaponToRemove.transform.parent = null;
+        weaponToRemove.EnableWeapon(false);
         weaponToRemove.SetPhysicsState(false);
         weaponToRemove.Push(transform.forward * 5f + transform.up * 2f);
 
@@ -53,10 +54,14 @@ public class WeaponControler : MonoBehaviour
         if (index < 0 || index >= _weaponList.Count) return;
         print("Switch weapon to index : " + index);
         if (_currentWeapon)
+        {
             _currentWeapon.gameObject.SetActive(false);
+            _currentWeapon.EnableWeapon(false);   
+        }
 
         _currentWeapon = _weaponList[index];
         _currentWeapon.gameObject.SetActive(true);
+        _currentWeapon.EnableWeapon(true);
     }
 
     private void Update()

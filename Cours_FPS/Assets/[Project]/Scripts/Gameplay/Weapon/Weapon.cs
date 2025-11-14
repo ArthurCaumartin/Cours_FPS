@@ -27,6 +27,7 @@ public abstract class Weapon : MonoBehaviour
         enabled = false;
         weaponRigidbody = GetComponent<Rigidbody>();
         weaponColliderArray = GetComponentsInChildren<Collider>();
+        EnableWeapon(false);
     }
 
     private void OnValidate()
@@ -46,6 +47,11 @@ public abstract class Weapon : MonoBehaviour
         this.weaponControler = weaponControler;
 
         SetPhysicsState(true);
+    }
+
+    public virtual void EnableWeapon(bool value)
+    {
+        enabled = value;
     }
 
     public virtual void Shoot(bool isInputPressed)

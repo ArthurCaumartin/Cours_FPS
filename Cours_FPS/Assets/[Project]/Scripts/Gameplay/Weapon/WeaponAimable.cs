@@ -5,6 +5,7 @@ public class WeaponAimable : Weapon
     [SerializeField] protected AimCursor aimCursor;
     [SerializeField] protected Camera playerCamera;
     [SerializeField] protected Transform aimTransform;
+    [SerializeField] protected Camera aimRenderCamera;
     protected Vector3 startLocalPos;
     protected bool isAiming;
 
@@ -12,6 +13,12 @@ public class WeaponAimable : Weapon
     {
         playerCamera = Camera.main;
         startLocalPos = transform.localPosition;
+    }
+
+    public override void EnableWeapon(bool value)
+    {
+        base.EnableWeapon(value);
+        aimRenderCamera.enabled = true;
     }
 
     protected virtual void Update()
@@ -29,7 +36,7 @@ public class WeaponAimable : Weapon
         }
 
         transform.localPosition =
-        Vector3.Lerp(transform.localPosition, targetPos, Time.deltaTime * 50);
+        Vector3.Lerp(transform.localPosition, targetPos, Time.deltaTime * 15);
     }
 
     public override void ShootSecondary(bool isInputPressed)

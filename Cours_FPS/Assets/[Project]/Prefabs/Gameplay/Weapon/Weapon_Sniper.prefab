@@ -136,7 +136,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 7223
+    m_Bits: 23607
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 2e1556fa03f09ff45b8a374805dd55d5, type: 2}
   m_TargetDisplay: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   aimCursor: {fileID: 0}
   playerCamera: {fileID: 0}
   aimTransform: {fileID: 5414909154798384706}
+  aimRenderCamera: {fileID: 375579800253247853}
 --- !u!54 &1745004537608875247
 Rigidbody:
   m_ObjectHideFlags: 0
