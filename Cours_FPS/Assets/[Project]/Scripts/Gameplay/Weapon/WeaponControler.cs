@@ -52,7 +52,7 @@ public class WeaponControler : MonoBehaviour
     private void SwitchWeapon(int index)
     {
         if (index < 0 || index >= _weaponList.Count) return;
-        print("Switch weapon to index : " + index);
+        // print("Switch weapon to index : " + index);
         if (_currentWeapon)
         {
             _currentWeapon.gameObject.SetActive(false);

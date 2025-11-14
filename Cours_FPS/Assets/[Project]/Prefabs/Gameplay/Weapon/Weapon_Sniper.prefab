@@ -252,8 +252,32 @@ MonoBehaviour:
   shootPerSecond: 10
   shootDelay: 0.1
   projectileSpeed: 5
-  recoilAmout: 4
-  recoilDuration: 0.075
+  recoilAmout: 8
+  recoilDuration: 0.2
+  recoilCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0009384155
+      value: 1
+      inSlope: 0.0000004772839
+      outSlope: 0.0000004772839
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.99812734
+    - serializedVersion: 3
+      time: 1
+      value: -1
+      inSlope: -0.000000059548835
+      outSlope: -0.000000059548835
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   aimCursor: {fileID: 0}
   playerCamera: {fileID: 0}
   aimTransform: {fileID: 5414909154798384706}

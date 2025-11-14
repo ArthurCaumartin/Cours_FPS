@@ -12,9 +12,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float shootPerSecond;
     [SerializeField, ReadOnly] private float shootDelay;
     [SerializeField] protected float projectileSpeed;
-    [Space]
+    [Header("Recoil :")]
     [SerializeField] protected float recoilAmout;
     [SerializeField] protected float recoilDuration;
+    [SerializeField] protected AnimationCurve recoilCurve;
 
     protected bool canShoot = true;
     protected PlayerLook playerLook;

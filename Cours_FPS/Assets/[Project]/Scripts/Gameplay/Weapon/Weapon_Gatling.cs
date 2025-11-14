@@ -27,6 +27,6 @@ public class Weapon_Gatling : Weapon
 
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / (shootPerSecond * _currentAttackSpeedBonus)));
-        playerLook.AddRecoil(recoilAmout, recoilDuration);
+        playerLook.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
     }
 }
