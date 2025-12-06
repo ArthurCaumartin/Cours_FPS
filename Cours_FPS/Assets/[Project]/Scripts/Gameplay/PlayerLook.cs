@@ -33,9 +33,7 @@ public class PlayerLook : MonoBehaviour
     {
         print("Add recoil : " + recoilAmount + " | duration : " + recoilDuration);
 
-        //TODO ajouter une animation curve en parametre + faire le recoil avec un lerp et conditioner avec un time
         // print("Add recoil : " + recoilAmount);
-        float xSnap = _xRotation;
         float time = 0;
         while (time < 1)
         {
@@ -47,8 +45,6 @@ public class PlayerLook : MonoBehaviour
             await Task.Yield();
             _xRotation = Mathf.Clamp(_xRotation, -_maxLookAngle, _maxLookAngle);
         }
-
-        print("RecoilEnd | from :" + _xRotation + " to : " + xSnap + " | total added : " + (xSnap - _xRotation));
     }
 
     public Vector3 GetLookDirection()
