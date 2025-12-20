@@ -25,6 +25,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Jump",
+                    "type": "Value",
+                    "id": "7c675db0-9d4c-4628-9533-f3a46ad8cd7b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Scroll",
                     "type": "Value",
                     "id": "091865ca-5a26-402f-95ee-b48c55156e37",
@@ -169,6 +178,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThrowWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "151f6c98-f304-48be-8122-d9456b6caede",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

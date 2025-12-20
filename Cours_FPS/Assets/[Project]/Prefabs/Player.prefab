@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 4191117042367334463}
   - component: {fileID: 6147038466240347670}
   - component: {fileID: 6946116452813624367}
+  - component: {fileID: 5673360910079539953}
   - component: {fileID: 3358659690203349821}
   - component: {fileID: 4297201658471611617}
   - component: {fileID: 7934073680509052405}
@@ -522,6 +523,7 @@ Transform:
   - {fileID: 4496367599912408000}
   - {fileID: 2984957347239907193}
   - {fileID: 5294086634300685828}
+  - {fileID: 1774482762566020220}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6147038466240347670
@@ -567,8 +569,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef913add8fb1bdc4c901093e850b8d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundDetector: {fileID: 5673360910079539953}
   _moveSpeed: 8
-  _jumpForce: 5
+  _acceleration: 10
+  _jumpForce: 18
+  _fallingSpeed: 3.5
+  _fallingAcceleration: 2.5
+  _gravityScale: 1
+--- !u!114 &5673360910079539953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790974063915859099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f107e4b43ff85489899006e938b768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEBUG: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _detectionOffset: 1
+  _detectionRadius: 0.5
+  _angleThresold: 50
 --- !u!114 &3358659690203349821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,9 +652,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &1742094851639035791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -731,8 +757,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerLook: {fileID: 3358659690203349821}
-  _weaponList:
-  - {fileID: 7858588411885165044}
+  _weaponList: []
+--- !u!1 &8059418202370104922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774482762566020220}
+  - component: {fileID: 7767983629368790105}
+  - component: {fileID: 5224054219412793885}
+  m_Layer: 11
+  m_Name: WeaponGraber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1774482762566020220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059418202370104922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4191117042367334463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7767983629368790105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059418202370104922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328d5ae0139beed468e0706d7926dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponControler: {fileID: 7839892546579872234}
+--- !u!135 &5224054219412793885
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059418202370104922}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8544700810576060561
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,9 +970,19 @@ PrefabInstance:
       objectReference: {fileID: 4297201658471611617}
     - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
         type: 3}
+      propertyPath: recoilAmout
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
+        type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 296187042991067184}
+    - target: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
+        type: 3}
+      propertyPath: recoilCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -892,15 +994,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 470951294822717374}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7858588411885165044 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7748011270871289418, guid: 9c8685a5cfaafec43b1fc981be007ce3,
-    type: 3}
-  m_PrefabInstance: {fileID: 470951294822717374}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d591e97debc0624c9016abe3c0e69b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
