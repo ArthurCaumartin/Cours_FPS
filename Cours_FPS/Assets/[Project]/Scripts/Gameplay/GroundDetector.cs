@@ -47,8 +47,8 @@ public class GroundDetector : MonoBehaviour
         foreach (var item in hits)
         {
             float angle = Vector3.Angle(Vector3.up, item.normal);
-            print($"Angle from UP to {item.normal} : " + angle);
-            print("hit point : " + item.point);
+            // print($"Angle from UP to {item.normal} : " + angle);
+            // print("hit point : " + item.point);
             Debug.DrawRay(item.point, item.normal * 50, Color.blue);
             if (angle < _angleThresold)
             {
