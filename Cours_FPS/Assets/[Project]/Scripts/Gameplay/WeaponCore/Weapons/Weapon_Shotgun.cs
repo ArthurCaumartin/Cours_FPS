@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon_Shotgun : Weapon
+public class Weapon_Shotgun : WeaponBehavior
 {
     [SerializeField] private int _projectileCount = 6;
     [SerializeField, Range(0f, 60)] private float _spreadAngle = 0.1f;

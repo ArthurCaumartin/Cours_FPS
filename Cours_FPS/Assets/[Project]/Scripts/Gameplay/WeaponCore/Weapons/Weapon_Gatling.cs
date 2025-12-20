@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon_Gatling : Weapon
+public class Weapon_Gatling : WeaponBehavior
 {
     [Header("Gatling Gun Stats : ")]
     [SerializeField] private float _maxAttackSpeedBonus = 3f;

@@ -2,7 +2,7 @@ using System.Collections;
 using Alchemy.Inspector;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class WeaponBehavior : MonoBehaviour
 {
     [SerializeField] protected Transform shootPoint;
     [SerializeField] protected Projectile projectilePrefab;
@@ -22,6 +22,9 @@ public abstract class Weapon : MonoBehaviour
     protected WeaponControler weaponControler;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
+
+    public float RecoilAmount => recoilAmout;
+    public float RecoilDuration => recoilDuration;
 
     protected virtual void Awake()
     {
@@ -79,7 +82,7 @@ public abstract class Weapon : MonoBehaviour
     {
         enabled = isGrabed;
 
-        if(!isGrabed && weaponRigidbody == null)
+        if (!isGrabed && weaponRigidbody == null)
         {
             weaponRigidbody = gameObject.AddComponent<Rigidbody>();
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponAimable : Weapon
+public class Weapon_Aimable : WeaponBehavior
 {
     [SerializeField] protected AimCursor aimCursor;
     [SerializeField] protected Camera playerCamera;

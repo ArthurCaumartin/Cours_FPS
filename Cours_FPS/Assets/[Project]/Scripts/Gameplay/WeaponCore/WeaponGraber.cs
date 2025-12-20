@@ -6,7 +6,7 @@ public class WeaponGraber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Weapon>(out Weapon weapon))
+        if (other.TryGetComponent<WeaponBehavior>(out WeaponBehavior weapon))
         {
             _weaponControler.AddWeapon(weapon);
         }

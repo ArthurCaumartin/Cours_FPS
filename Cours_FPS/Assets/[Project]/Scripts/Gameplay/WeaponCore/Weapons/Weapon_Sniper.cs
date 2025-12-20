@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon_Sniper : WeaponAimable
+public class Weapon_Sniper : Weapon_Aimable
 {
     public override void Shoot(bool isInputPressed)
     {

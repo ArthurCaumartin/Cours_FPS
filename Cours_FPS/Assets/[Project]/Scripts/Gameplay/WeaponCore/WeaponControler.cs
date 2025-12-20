@@ -9,20 +9,20 @@ public class WeaponControler : MonoBehaviour
     [SerializeField] private PlayerLook _playerLook;
 
     [Space]
-    [SerializeField] private List<Weapon> _weaponList = new List<Weapon>();
+    [SerializeField] private List<WeaponBehavior> _weaponList = new List<WeaponBehavior>();
     private int _currentWeaponIndex = 0;
-    private Weapon _currentWeapon;
+    private WeaponBehavior _currentWeapon;
     private bool _isShooting = false;
     private bool _isShootingSecondary = false;
 
     private void Start()
     {
         _currentWeaponIndex = 0;
-        foreach (var item in GetComponentsInChildren<Weapon>())
+        foreach (var item in GetComponentsInChildren<WeaponBehavior>())
             AddWeapon(item);
     }
 
-    public void AddWeapon(Weapon newWeapon)
+    public void AddWeapon(WeaponBehavior newWeapon)
     {
         newWeapon.InitGrab(this, _playerLook);
         _weaponList.Add(newWeapon);
@@ -35,7 +35,7 @@ public class WeaponControler : MonoBehaviour
     {
         if (index < 0 || index >= _weaponList.Count) return;
 
-        Weapon weaponToRemove = _weaponList[index];
+        WeaponBehavior weaponToRemove = _weaponList[index];
         _weaponList.RemoveAt(index);
 
         weaponToRemove.transform.parent = null;
