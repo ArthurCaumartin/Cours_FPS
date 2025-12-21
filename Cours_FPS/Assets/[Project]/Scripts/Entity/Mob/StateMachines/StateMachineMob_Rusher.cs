@@ -12,7 +12,7 @@ public class StateMachineMob_Rusher : StateMachine_MobBehavior
     {
         base.Awake();
 
-        _explosif = GetComponent<Explosif>();
+        _explosif = GetComponentInChildren<Explosif>();
 
         _stateMobRoam.Init(this, navMeshAgent);
         _stateMobRush.Init(this, navMeshAgent, targetFinder, _explosif);

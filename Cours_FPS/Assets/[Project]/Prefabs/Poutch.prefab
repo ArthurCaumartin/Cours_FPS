@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2626771668884429123}
   - component: {fileID: 898382022110394510}
   - component: {fileID: 8204133080492626024}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Poutch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5091636475581919432}
   - component: {fileID: 2995306842273049165}
   - component: {fileID: 675197991939998764}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,9 +157,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
