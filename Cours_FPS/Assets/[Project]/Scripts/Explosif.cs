@@ -11,7 +11,7 @@ public class Explosif : MonoBehaviour
     [Space]
     [SerializeField] private float _distanceTrigger;
     [Space]
-    [SerializeField] private GameObject[] _objectToDestroy;
+    [SerializeField] private ParticleSystem _explosionVFX;
     [SerializeField] private LayerMask _explosionLayerMask;
     private Damagable _selfDamagable;
 
@@ -37,7 +37,8 @@ public class Explosif : MonoBehaviour
             if (_selfDamagable && _selfDamagable == d) continue;
             d.TakeDamage(_damage);
         }
-
+        ParticleSystem p = Instantiate(_explosionVFX, transform.position, Quaternion.identity);
+        Destroy(p.gameObject, p.main.duration);
         Destroy(transform.parent.gameObject);
     }
 

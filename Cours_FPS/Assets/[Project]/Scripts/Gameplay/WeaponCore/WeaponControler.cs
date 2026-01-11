@@ -87,6 +87,8 @@ public class WeaponControler : MonoBehaviour
         _currentWeaponIndex = (_currentWeaponIndex + (int)Mathf.Sign(scrollValue)) % _weaponList.Count;
         if (_currentWeaponIndex < 0) _currentWeaponIndex = _weaponList.Count - 1;
         SwitchWeapon(_currentWeaponIndex);
+
+        _weaponList.ForEach((obj) => obj.gameObject.SetActive(false));
     }
 
     private void OnThrowWeapon(InputValue value)
