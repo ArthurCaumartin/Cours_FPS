@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class WeaponControler : MonoBehaviour
 {
     [SerializeField] private PlayerLook _playerLook;
+    [SerializeField] private AimCursor _aimCursor;
 
     [Space]
     [SerializeField] private List<WeaponBehavior> _weaponList = new List<WeaponBehavior>();
@@ -24,7 +25,7 @@ public class WeaponControler : MonoBehaviour
 
     public void AddWeapon(WeaponBehavior newWeapon)
     {
-        newWeapon.InitGrab(this, _playerLook);
+        newWeapon.InitGrab(this, _playerLook, _aimCursor);
         _weaponList.Add(newWeapon);
 
         _currentWeaponIndex = _weaponList.IndexOf(newWeapon);
@@ -56,7 +57,7 @@ public class WeaponControler : MonoBehaviour
         if (_currentWeapon)
         {
             _currentWeapon.gameObject.SetActive(false);
-            _currentWeapon.EnableWeapon(false);   
+            _currentWeapon.EnableWeapon(false);
         }
 
         _currentWeapon = _weaponList[index];

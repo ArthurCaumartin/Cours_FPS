@@ -5,16 +5,26 @@ public class AimCursor : MonoBehaviour
     [SerializeField] private bool _debug = false;
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private LayerMask _aimLayerMask;
-
     private Vector3 _worldAimPoint;
+    private GameObject _objectAim;
+
+    public GameObject ObjectAim => _objectAim;
+
 
     private void Update()
     {
         Ray ray = new Ray(_playerCamera.transform.position, _playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 500f, _aimLayerMask))
+        Physics.Raycast(ray, out RaycastHit hit, 500f, _aimLayerMask);
+        if (hit.collider)
+        {
+            _objectAim = hit.collider.gameObject;
             _worldAimPoint = hit.point;
+        }
         else
+        {
+            _objectAim = null;
             _worldAimPoint = ray.GetPoint(100f);
+        }
     }
 
     public Vector3 GetWorldAimPoint()
@@ -24,7 +34,7 @@ public class AimCursor : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(!_debug) return;
+        if (!_debug) return;
         if (_playerCamera)
         {
             Gizmos.color = Color.blue;

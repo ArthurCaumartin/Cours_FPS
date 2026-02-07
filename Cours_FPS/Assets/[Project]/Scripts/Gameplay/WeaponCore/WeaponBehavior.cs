@@ -19,6 +19,7 @@ public abstract class WeaponBehavior : MonoBehaviour
 
     protected bool canShoot = true;
     protected PlayerLook playerLook;
+    protected AimCursor aimCursor;
     protected WeaponControler weaponControler;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
@@ -39,7 +40,7 @@ public abstract class WeaponBehavior : MonoBehaviour
         shootDelay = 1 / shootPerSecond;
     }
 
-    public void InitGrab(WeaponControler weaponControler, PlayerLook playerLook)
+    public void InitGrab(WeaponControler weaponControler, PlayerLook playerLook, AimCursor aimCursor)
     {
         if (weaponColliderArray == null)
             weaponColliderArray = GetComponentsInChildren<Collider>();
@@ -49,6 +50,7 @@ public abstract class WeaponBehavior : MonoBehaviour
 
         this.playerLook = playerLook;
         this.weaponControler = weaponControler;
+        this.aimCursor = aimCursor;
 
         SetPhysicsState(true);
     }
