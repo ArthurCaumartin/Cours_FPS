@@ -38,11 +38,7 @@ public class WeaponControler : MonoBehaviour
 
         WeaponBehavior weaponToRemove = _weaponList[index];
         _weaponList.RemoveAt(index);
-
-        weaponToRemove.transform.parent = null;
-        weaponToRemove.EnableWeapon(false);
-        weaponToRemove.SetPhysicsState(false);
-        weaponToRemove.Push(transform.forward * 5f + transform.up * 2f);
+        weaponToRemove.DropWeapon();
 
         _currentWeapon = null;
         if (_currentWeaponIndex >= _weaponList.Count)

@@ -20,6 +20,7 @@ public abstract class WeaponBehavior : MonoBehaviour
     protected bool canShoot = true;
     protected PlayerLook playerLook;
     protected AimCursor aimCursor;
+    protected WeaponInteraction weaponInteraction;
     protected WeaponControler weaponControler;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
@@ -32,6 +33,7 @@ public abstract class WeaponBehavior : MonoBehaviour
         enabled = false;
         weaponRigidbody = GetComponent<Rigidbody>();
         weaponColliderArray = GetComponentsInChildren<Collider>();
+        weaponInteraction = GetComponent<WeaponInteraction>();
         EnableWeapon(false);
     }
 
@@ -49,10 +51,21 @@ public abstract class WeaponBehavior : MonoBehaviour
             Destroy(weaponRigidbody);
 
         this.playerLook = playerLook;
-        this.weaponControler = weaponControler;
         this.aimCursor = aimCursor;
 
+        this.weaponControler = weaponControler;
+        weaponInteraction.AllowInteraction = false;
+
         SetPhysicsState(true);
+    }
+
+    public void DropWeapon()
+    {
+        transform.parent = null;
+        EnableWeapon(false);
+        SetPhysicsState(false);
+        weaponInteraction.AllowInteraction = true;
+        weaponRigidbody.AddForce(transform.forward * 5f + transform.up * 2f, ForceMode.Impulse);
     }
 
     public virtual void EnableWeapon(bool value)
@@ -92,9 +105,6 @@ public abstract class WeaponBehavior : MonoBehaviour
         foreach (var item in weaponColliderArray)
             item.enabled = !isGrabed;
     }
-
-    public void Push(Vector3 worldForce)
-    {
-        weaponRigidbody.AddForce(worldForce, ForceMode.Impulse);
-    }
 }
+
+
