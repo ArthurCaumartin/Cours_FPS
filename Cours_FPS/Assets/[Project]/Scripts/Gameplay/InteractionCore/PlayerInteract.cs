@@ -26,8 +26,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _detectionDistance, _detectionLayerMask))
         {
             Interactible interactible = hit.collider.GetComponent<Interactible>();
-            if(interactible.)
-            return 
+            return interactible;
         }
         return null;
     }

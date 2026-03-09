@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3990490480832747955}
   - component: {fileID: 7748011270871289418}
-  - component: {fileID: 2653266161746939501}
+  - component: {fileID: 3681638333775613167}
   - component: {fileID: 1745004537608875247}
   - component: {fileID: 6723029232590792470}
   - component: {fileID: 694685571925833390}
@@ -417,7 +417,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   aimTransform: {fileID: 5414909154798384706}
   aimRenderCamera: {fileID: 375579800253247853}
---- !u!114 &2653266161746939501
+--- !u!114 &3681638333775613167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,10 +426,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5690824594882812064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 328d5ae0139beed468e0706d7926dba6, type: 3}
+  m_Script: {fileID: 11500000, guid: e5bd84641f091444ca515bc166bc7f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponControler: {fileID: 0}
 --- !u!54 &1745004537608875247
 Rigidbody:
   m_ObjectHideFlags: 0

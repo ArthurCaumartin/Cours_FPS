@@ -30,7 +30,7 @@ public class CanvasManager : MonoBehaviour
         }
 
         if (!_textInteraction) return;
-        if (interactible is WeaponInteraction wp)
+        if (interactible is Interactible_Weapon wp)
             _textInteraction.text = "Grab " + wp.gameObject.name;
     }
 }

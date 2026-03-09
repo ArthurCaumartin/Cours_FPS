@@ -20,7 +20,6 @@ public abstract class WeaponBehavior : MonoBehaviour
     protected bool canShoot = true;
     protected PlayerLook playerLook;
     protected AimCursor aimCursor;
-    protected WeaponInteraction weaponInteraction;
     protected WeaponControler weaponControler;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
@@ -33,7 +32,6 @@ public abstract class WeaponBehavior : MonoBehaviour
         enabled = false;
         weaponRigidbody = GetComponent<Rigidbody>();
         weaponColliderArray = GetComponentsInChildren<Collider>();
-        weaponInteraction = GetComponent<WeaponInteraction>();
         EnableWeapon(false);
     }
 
@@ -52,11 +50,10 @@ public abstract class WeaponBehavior : MonoBehaviour
 
         this.playerLook = playerLook;
         this.aimCursor = aimCursor;
-
         this.weaponControler = weaponControler;
-        weaponInteraction.AllowInteraction = false;
 
         SetPhysicsState(true);
+        transform.localEulerAngles = Vector3.zero;
     }
 
     public void DropWeapon()
@@ -64,7 +61,6 @@ public abstract class WeaponBehavior : MonoBehaviour
         transform.parent = null;
         EnableWeapon(false);
         SetPhysicsState(false);
-        weaponInteraction.AllowInteraction = true;
         weaponRigidbody.AddForce(transform.forward * 5f + transform.up * 2f, ForceMode.Impulse);
     }
 

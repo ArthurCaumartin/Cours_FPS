@@ -25,8 +25,9 @@ public class WeaponControler : MonoBehaviour
 
     public void AddWeapon(WeaponBehavior newWeapon)
     {
-        newWeapon.InitGrab(this, _playerLook, _aimCursor);
         _weaponList.Add(newWeapon);
+        newWeapon.transform.SetParent(transform);
+        newWeapon.InitGrab(this, _playerLook, _aimCursor);
 
         _currentWeaponIndex = _weaponList.IndexOf(newWeapon);
         SwitchWeapon(_currentWeaponIndex);

@@ -397,7 +397,6 @@ Transform:
   m_Children:
   - {fileID: 4496367599912408000}
   - {fileID: 2984957347239907193}
-  - {fileID: 1774482762566020220}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6147038466240347670
@@ -497,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259f0286b8f882c429cd18fd1e84ffdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionDistance: 1.5
+  _detectionDistance: 8.74
   _detectionLayerMask:
     serializedVersion: 2
     m_Bits: 16384
@@ -751,72 +750,6 @@ MonoBehaviour:
   _playerLook: {fileID: 3358659690203349821}
   _aimCursor: {fileID: 4297201658471611617}
   _weaponList: []
---- !u!1 &8059418202370104922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1774482762566020220}
-  - component: {fileID: 7767983629368790105}
-  - component: {fileID: 5224054219412793885}
-  m_Layer: 11
-  m_Name: WeaponGraber
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1774482762566020220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8059418202370104922}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4191117042367334463}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7767983629368790105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8059418202370104922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 328d5ae0139beed468e0706d7926dba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &5224054219412793885
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8059418202370104922}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8834056232118708154
 GameObject:
   m_ObjectHideFlags: 0
