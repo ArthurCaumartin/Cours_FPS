@@ -281,7 +281,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerCamera: {fileID: 0}
   aimTransform: {fileID: 5414909154798384706}
-  aimRenderCamera: {fileID: 0}
+  aimRenderCamera: {fileID: 4062705794354983906}
 --- !u!114 &3681638333775613167
 MonoBehaviour:
   m_ObjectHideFlags: 0
