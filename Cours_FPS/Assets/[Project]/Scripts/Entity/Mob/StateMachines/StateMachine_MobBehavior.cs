@@ -2,10 +2,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StateMachine_MobBehavior : StateMachine
+[RequireComponent(typeof(NavMeshAgent), typeof(TargetFinder))]
+public abstract class StateMachine_MobBehavior : StateMachine
 {
-    [SerializeField] protected NavMeshAgent navMeshAgent;
-    [SerializeField] protected TargetFinder targetFinder;
+    protected NavMeshAgent navMeshAgent;
+    protected TargetFinder targetFinder;
 
     protected virtual void Awake()
     {
