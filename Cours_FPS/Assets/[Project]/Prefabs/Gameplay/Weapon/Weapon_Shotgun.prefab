@@ -116,6 +116,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _audioClipShoot: {fileID: 8300000, guid: 7c8172c935d14d941a258c07e1c0c20b, type: 3}
   _projectileCount: 30
   _spreadAngle: 8
 --- !u!54 &2932006560378881219

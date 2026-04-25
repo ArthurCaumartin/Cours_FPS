@@ -16,7 +16,9 @@ public abstract class WeaponBehavior : MonoBehaviour
     [SerializeField] protected float recoilAmout;
     [SerializeField] protected float recoilDuration;
     [SerializeField] protected AnimationCurve recoilCurve;
-
+    [Header("FX Reference : ")]
+    [SerializeField] private AudioClip _audioClipShoot; 
+    
     protected bool canShoot = true;
     protected PlayerLook playerLook;
     protected AimCursor aimCursor;
@@ -67,6 +69,11 @@ public abstract class WeaponBehavior : MonoBehaviour
     public virtual void EnableWeapon(bool value)
     {
         enabled = value;
+    }
+
+    public virtual void TriggerShootFX()
+    {
+        AudioManager.Instance.PlayFX(_audioClipShoot, transform.position);
     }
 
     public virtual void Shoot(bool isInputPressed)
