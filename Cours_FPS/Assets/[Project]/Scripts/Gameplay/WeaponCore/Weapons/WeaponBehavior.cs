@@ -12,19 +12,23 @@ public abstract class WeaponBehavior : MonoBehaviour
     [SerializeField] protected float shootPerSecond;
     [SerializeField, ReadOnly] private float shootDelay;
     [SerializeField] protected float projectileSpeed;
+    [SerializeField] protected float reloadDuration = 1;
+    [SerializeField] protected int magazineCapacity = 5;
     [Header("Recoil :")]
     [SerializeField] protected float recoilAmout;
     [SerializeField] protected float recoilDuration;
     [SerializeField] protected AnimationCurve recoilCurve;
     [Header("FX Reference : ")]
-    [SerializeField] private AudioClip _audioClipShoot; 
-    
+    [SerializeField] private AudioClip _audioClipShoot;
+
     protected bool canShoot = true;
     protected PlayerLook playerLook;
     protected AimCursor aimCursor;
     protected WeaponControler weaponControler;
+    protected WeaponVisual weaponVisual;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
+    protected int currentMagazineLoad;
 
     public float RecoilAmount => recoilAmout;
     public float RecoilDuration => recoilDuration;
@@ -34,6 +38,10 @@ public abstract class WeaponBehavior : MonoBehaviour
         enabled = false;
         weaponRigidbody = GetComponent<Rigidbody>();
         weaponColliderArray = GetComponentsInChildren<Collider>();
+        weaponVisual = GetComponent<WeaponVisual>();
+
+        currentMagazineLoad = magazineCapacity;
+
         EnableWeapon(false);
     }
 
@@ -80,14 +88,22 @@ public abstract class WeaponBehavior : MonoBehaviour
     {
         if (!isInputPressed) return;
         if (!canShoot) return;
+        if (currentMagazineLoad <= 0) return;
+
         Projectile newProjectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         newProjectile.Initilaze(damage, projectileSpeed, layerMask);
 
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
+        currentMagazineLoad--;
     }
 
     public virtual void ShootSecondary(bool isInputPressed) { }
+
+    public virtual void Reload()
+    {
+        weaponVisual.Reload(reloadDuration, () => { currentMagazineLoad = magazineCapacity; });
+    }
 
     protected IEnumerator CanShootDelay(float delay)
     {

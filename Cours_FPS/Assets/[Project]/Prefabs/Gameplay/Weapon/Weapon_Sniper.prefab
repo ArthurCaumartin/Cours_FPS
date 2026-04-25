@@ -202,10 +202,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3990490480832747955}
   - component: {fileID: 7748011270871289418}
+  - component: {fileID: 413572518745722843}
   - component: {fileID: 3681638333775613167}
   - component: {fileID: 1745004537608875247}
   - component: {fileID: 6723029232590792470}
   - component: {fileID: 694685571925833390}
+  - component: {fileID: 1733880782938574561}
   m_Layer: 14
   m_Name: Weapon_Sniper
   m_TagString: Untagged
@@ -253,6 +255,7 @@ MonoBehaviour:
   shootPerSecond: 10
   shootDelay: 0.1
   projectileSpeed: 5
+  reloadDuration: 5
   recoilAmout: 8
   recoilDuration: 0.2
   recoilCurve:
@@ -282,6 +285,18 @@ MonoBehaviour:
   _audioClipShoot: {fileID: 8300000, guid: 7c8172c935d14d941a258c07e1c0c20b, type: 3}
   aimTransform: {fileID: 5414909154798384706}
   aimRenderCamera: {fileID: 4062705794354983906}
+--- !u!114 &413572518745722843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690824594882812064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be81580ef18ed40b2be1398cacb2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3681638333775613167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +378,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09041734, y: 0.08745167, z: 1.6264354}
   m_Center: {x: 0, y: 0.010540977, z: 0.23190159}
+--- !u!95 &1733880782938574561
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690824594882812064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aceccdd2209d1da40bad7615275c197a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6926866979759638052
 GameObject:
   m_ObjectHideFlags: 0

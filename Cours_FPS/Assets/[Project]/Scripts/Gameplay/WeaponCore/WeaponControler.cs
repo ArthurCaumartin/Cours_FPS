@@ -78,6 +78,14 @@ public class WeaponControler : MonoBehaviour
         _isShootingSecondary = value.Get<float>() > .5f;
     }
 
+    private void OnReload(InputValue value)
+    {
+        if(value.Get<float>() > .5f)
+        {
+            _currentWeapon?.Reload();
+        }
+    }
+
     private void OnScroll(InputValue value)
     {
         float scrollValue = value.Get<float>();

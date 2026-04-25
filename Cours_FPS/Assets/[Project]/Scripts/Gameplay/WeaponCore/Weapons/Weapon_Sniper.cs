@@ -6,6 +6,7 @@ public class Weapon_Sniper : Weapon_Aimable
     {
         if (!isInputPressed) return;
         if (!canShoot) return;
+        if (currentMagazineLoad <= 0) return;
 
         Vector3 projDirection = aimCursor.GetWorldAimPoint() - shootPoint.position;
         Quaternion projectileRot = Quaternion.LookRotation(projDirection.normalized);
@@ -26,5 +27,6 @@ public class Weapon_Sniper : Weapon_Aimable
 
         playerLook.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
+        currentMagazineLoad--;
     }
 }

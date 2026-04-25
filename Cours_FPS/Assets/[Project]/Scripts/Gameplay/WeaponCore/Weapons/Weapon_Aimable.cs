@@ -20,6 +20,12 @@ public class Weapon_Aimable : WeaponBehavior
         aimRenderCamera.enabled = true;
     }
 
+    public override void Reload()
+    {
+        if (isAiming) return;
+        weaponVisual.Reload(reloadDuration, () => { currentMagazineLoad = magazineCapacity; });
+    }
+
     protected virtual void Update()
     {
         Vector3 targetPos;
