@@ -19,7 +19,7 @@ public class Weapon_Gatling : WeaponBehavior
     {
         if (!isInputPressed) return;
         if (!canShoot) return;
-        if (currentMagazineLoad <= 0) return;
+        if (currentAmmo <= 0) return;
 
         Projectile newProjectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         newProjectile.Initilaze(damage, projectileSpeed, layerMask);
@@ -29,7 +29,7 @@ public class Weapon_Gatling : WeaponBehavior
 
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / (shootPerSecond * _currentAttackSpeedBonus)));
-        playerLook.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
-        currentMagazineLoad--;
+        playerLook?.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
+        currentAmmo--;
     }
 }

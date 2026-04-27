@@ -13,7 +13,7 @@ public abstract class WeaponBehavior : MonoBehaviour
     [SerializeField, ReadOnly] private float shootDelay;
     [SerializeField] protected float projectileSpeed;
     [SerializeField] protected float reloadDuration = 1;
-    [SerializeField] protected int magazineCapacity = 5;
+    [SerializeField] protected int ammoCappacity = 5;
     [Header("Recoil :")]
     [SerializeField] protected float recoilAmout;
     [SerializeField] protected float recoilDuration;
@@ -24,14 +24,15 @@ public abstract class WeaponBehavior : MonoBehaviour
     protected bool canShoot = true;
     protected PlayerLook playerLook;
     protected AimCursor aimCursor;
-    protected WeaponControler weaponControler;
     protected WeaponVisual weaponVisual;
     protected Rigidbody weaponRigidbody;
     protected Collider[] weaponColliderArray;
-    protected int currentMagazineLoad;
+    protected int currentAmmo;
 
     public float RecoilAmount => recoilAmout;
     public float RecoilDuration => recoilDuration;
+
+    public bool IsMagazinEmpty => currentAmmo <= 0;
 
     protected virtual void Awake()
     {
@@ -40,7 +41,7 @@ public abstract class WeaponBehavior : MonoBehaviour
         weaponColliderArray = GetComponentsInChildren<Collider>();
         weaponVisual = GetComponent<WeaponVisual>();
 
-        currentMagazineLoad = magazineCapacity;
+        currentAmmo = ammoCappacity;
 
         EnableWeapon(false);
     }
@@ -50,7 +51,7 @@ public abstract class WeaponBehavior : MonoBehaviour
         shootDelay = 1 / shootPerSecond;
     }
 
-    public void InitGrab(WeaponControler weaponControler, PlayerLook playerLook, AimCursor aimCursor)
+    public void InitGrab(PlayerLook playerLook, AimCursor aimCursor)
     {
         if (weaponColliderArray == null)
             weaponColliderArray = GetComponentsInChildren<Collider>();
@@ -60,7 +61,6 @@ public abstract class WeaponBehavior : MonoBehaviour
 
         this.playerLook = playerLook;
         this.aimCursor = aimCursor;
-        this.weaponControler = weaponControler;
 
         SetPhysicsState(true);
         transform.localEulerAngles = Vector3.zero;
@@ -88,21 +88,21 @@ public abstract class WeaponBehavior : MonoBehaviour
     {
         if (!isInputPressed) return;
         if (!canShoot) return;
-        if (currentMagazineLoad <= 0) return;
+        if (currentAmmo <= 0) return;
 
         Projectile newProjectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         newProjectile.Initilaze(damage, projectileSpeed, layerMask);
 
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
-        currentMagazineLoad--;
+        currentAmmo--;
     }
 
     public virtual void ShootSecondary(bool isInputPressed) { }
 
     public virtual void Reload()
     {
-        weaponVisual.Reload(reloadDuration, () => { currentMagazineLoad = magazineCapacity; });
+        weaponVisual.Reload(reloadDuration, () => { currentAmmo = ammoCappacity; });
     }
 
     protected IEnumerator CanShootDelay(float delay)

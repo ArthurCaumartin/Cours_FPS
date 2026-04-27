@@ -1,9 +1,10 @@
 
+using Alchemy.Inspector;
 using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    [SerializeField] private string _currentStateName = "null";
+    [SerializeField, ReadOnly] private string _currentStateName = "null";
     [Space]
     private State _currentState = null;
 

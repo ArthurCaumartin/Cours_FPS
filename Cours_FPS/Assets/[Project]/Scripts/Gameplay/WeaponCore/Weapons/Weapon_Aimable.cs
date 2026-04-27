@@ -23,7 +23,7 @@ public class Weapon_Aimable : WeaponBehavior
     public override void Reload()
     {
         if (isAiming) return;
-        weaponVisual.Reload(reloadDuration, () => { currentMagazineLoad = magazineCapacity; });
+        weaponVisual.Reload(reloadDuration, () => { currentAmmo = ammoCappacity; });
     }
 
     protected virtual void Update()

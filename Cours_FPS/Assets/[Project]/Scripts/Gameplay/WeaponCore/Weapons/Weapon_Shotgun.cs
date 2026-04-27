@@ -9,7 +9,7 @@ public class Weapon_Shotgun : WeaponBehavior
     {
         if (!isInputPressed) return;
         if (!canShoot) return;
-        if (currentMagazineLoad <= 0) return;
+        if (currentAmmo <= 0) return;
 
         for (int i = 0; i < _projectileCount; i++)
         {
@@ -23,9 +23,9 @@ public class Weapon_Shotgun : WeaponBehavior
             newProjectile.Initilaze(damage, projectileSpeed, layerMask);
         }
 
-        playerLook.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
+        playerLook?.AddRecoil(recoilAmout, recoilDuration, recoilCurve);
         canShoot = false;
         StartCoroutine(CanShootDelay(1f / shootPerSecond));
-        currentMagazineLoad--;
+        currentAmmo--;
     }
 }

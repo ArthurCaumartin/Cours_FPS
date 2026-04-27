@@ -10,7 +10,7 @@ public class TargetFinder : MonoBehaviour
     private Target _currentTarget;
     private float _targetDistance;
     private float _detectionTimer;
-    public Transform Target => _currentTarget?.transform;
+    public Transform Target => _currentTarget ? _currentTarget.transform : null;
 
 
     private void Update()
@@ -29,18 +29,18 @@ public class TargetFinder : MonoBehaviour
         Collider[] cols = Physics.OverlapSphere(transform.position, _detectionRadius, _layerMask);
         for (int i = 0; i < cols.Length; i++)
         {
-            Target t = cols[i].GetComponent<Target>();
-            if (!t) continue;
+            Target newTarget = cols[i].GetComponent<Target>();
+            if (!newTarget) continue;
             if (!_currentTarget)
             {
-                _currentTarget = t;
+                _currentTarget = newTarget;
                 continue;
             }
 
-            if (t && _currentTarget)
+            if (newTarget && _currentTarget)
             {
-                if (t.Priority > _currentTarget.Priority)
-                    _currentTarget = t;
+                if (newTarget.Priority > _currentTarget.Priority)
+                    _currentTarget = newTarget;
             }
         }
     }
@@ -53,7 +53,7 @@ public class TargetFinder : MonoBehaviour
             return;
         }
 
-        float newDistance = (_currentTarget.transform.position - transform.position).magnitude;
+        float newDistance = Vector3.Distance(transform.position, _currentTarget.transform.position);
         if (newDistance > _maxTrackDistance)
         {
             _currentTarget = null;
@@ -69,8 +69,8 @@ public class TargetFinder : MonoBehaviour
         if (!_debug.enable) return;
 
         Gizmos.color = _debug.color1;
-        Gizmos.DrawSphere(transform.position, _detectionRadius);
+        Gizmos.DrawWireSphere(transform.position, _detectionRadius);
         Gizmos.color = _debug.color2;
-        Gizmos.DrawSphere(transform.position, _maxTrackDistance);
+        Gizmos.DrawWireSphere(transform.position, _maxTrackDistance);
     }
 }
